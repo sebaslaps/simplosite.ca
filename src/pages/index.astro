@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
-const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Appel découverte SimploSite')}`;
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Demande de soumission SimploSite')}`;
 ---
 <BaseLayout>
   <section class="hero">
@@ -10,8 +10,7 @@ const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Appel découv
       <h1>Sites web simples pour gens de métier et entreprises de services.</h1>
       <p class="lead">{site.tagline} Vous faites du bon travail. Votre site devrait le dire clairement, sans jargon et sans détour.</p>
       <div class="actions">
-        <a class="button primary" href={mailto}>Appel découverte</a>
-        <a class="button" href="#contact">Parler de mon site</a>
+        <a class="button primary" href={mailto}>Demandez une soumission</a>
       </div>
     </div>
     <aside class="hero-card" aria-label="Promesse SimploSite">
@@ -68,13 +67,13 @@ const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Appel découv
   </section>
 
   <section class="section" id="contact">
-    <div class="contact-card">
+    <div class="contact-card centered">
       <div>
         <span class="eyebrow">Vous voulez un site plus clair?</span>
-        <h2>Parler de mon site</h2>
+        <h2>Demandez une soumission</h2>
         <p class="muted">Écrivez à {site.email} avec votre métier, votre région et ce que vous voulez que votre site accomplisse. Téléphone: {site.phoneDisplay}.</p>
       </div>
-      <a class="button primary" href={mailto}>Appel découverte</a>
+      <a class="button primary" href={mailto}>Demandez une soumission</a>
     </div>
   </section>
 </BaseLayout>

@@ -99,6 +99,8 @@ const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
   .band { background: #102033; color: white; border-radius: 34px; padding: 34px; }
   .band .muted { color: #c2cede; }
   .contact-card { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .contact-card.centered { display: flex; flex-direction: column; text-align: center; align-items: center; }
+  .contact-card.centered .muted { max-width: 680px; margin-inline: auto; }
   .site-footer { padding: 28px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
   @media (max-width: 820px) {
     .site-header, .hero, .contact-card { display: block; }

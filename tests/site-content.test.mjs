@@ -53,12 +53,14 @@ describe('SimploSite simplified public website', () => {
       'gens de métier',
       'entreprises de services',
       'clients vous trouvent',
-      'Appel découverte',
-      'Parler de mon site',
+      'Demandez une soumission',
       'clair',
       'simple'
     ]) assert.match(home, new RegExp(expected, 'i'));
 
+    assert.doesNotMatch(home, /Parler de mon site/i);
+    assert.doesNotMatch(home, /Appel découverte/i);
+    assert.match(home, /contact-card centered/i);
     for (const forbidden of forbiddenPublicTerms) assert.doesNotMatch(home, forbidden);
     assert.doesNotMatch(home, /<form|data-netlify|<input|<textarea/i);
   });

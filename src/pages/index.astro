@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Demande d’estimation SimploSite')}`;
+---
+<BaseLayout>
+  <section class="hero">
+    <div>
+      <span class="eyebrow">SimploSite · Québec · NEQ 2282327651</span>
+      <h1>Sites web simples pour entrepreneurs locaux.</h1>
+      <p class="lead">{site.tagline} On construit une présence claire, rapide et crédible pour aider vos clients à comprendre ce que vous faites et à vous contacter sans friction.</p>
+      <div class="actions">
+        <a class="button primary" href={mailto}>Planifier un appel</a>
+        <a class="button" href="#contact">Demander une estimation</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Promesse SimploSite">
+      <h2>Un site utile, pas compliqué.</h2>
+      <p class="muted">Une page solide pour présenter votre service, rassurer les visiteurs et préparer un déploiement propre sur Netlify pour simplosite.ca.</p>
+      <ul>
+        <li>Design professionnel et responsive</li>
+        <li>Texte orienté conversion et recherches locales</li>
+        <li>Structure technique rapide, statique et facile à maintenir</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Ce que SimploSite peut créer</h2>
+    <p class="lead">Des sites web simples, propres et bâtis autour de l’objectif d’affaires: expliquer l’offre, gagner la confiance et générer le prochain contact.</p>
+    <div class="grid">
+      {site.services.map((service) => (
+        <article class="card">
+          <h3>{service}</h3>
+          <p class="muted">Une approche concrète pour petites entreprises, entrepreneurs locaux et services professionnels au Québec.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="processus">
+    <div class="band">
+      <h2>Processus simple en trois étapes</h2>
+      <div class="grid">
+        <article>
+          <h3>1. Clarifier</h3>
+          <p class="muted">On définit l’offre, la clientèle, les services importants et les actions que le visiteur doit prendre.</p>
+        </article>
+        <article>
+          <h3>2. Construire</h3>
+          <p class="muted">On assemble une page rapide avec message clair, sections essentielles, confidentialité de base et fondations SEO locales.</p>
+        </article>
+        <article>
+          <h3>3. Publier</h3>
+          <p class="muted">On valide le build localement avant tout déploiement Netlify, puis on connecte le domaine quand tout est prêt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Pourquoi une page simple fonctionne</h2>
+    <ul class="check-list">
+      <li>Elle répond vite aux questions: qui vous êtes, ce que vous faites, où vous servez et comment vous joindre.</li>
+      <li>Elle évite la lourdeur d’un gros site avant d’avoir validé le message et l’offre.</li>
+      <li>Elle donne une base technique propre pour ajouter des pages, du contenu local et des intégrations plus tard.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact-card">
+      <div>
+        <span class="eyebrow">Prêt pour la prochaine étape?</span>
+        <h2>Demander une estimation SimploSite</h2>
+        <p class="muted">Écrivez à {site.email} avec votre type d’entreprise, votre région au Québec et l’objectif principal du site. Téléphone: {site.phoneDisplay}.</p>
+      </div>
+      <a class="button primary" href={mailto}>Demander une estimation</a>
+    </div>
+  </section>
+</BaseLayout>

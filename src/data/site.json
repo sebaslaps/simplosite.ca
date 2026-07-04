@@ -1,0 +1,20 @@
+{
+  "companyName": "SimploSite",
+  "neq": "2282327651",
+  "domain": "simplosite.ca",
+  "canonicalUrl": "https://simplosite.ca/",
+  "language": "fr-CA",
+  "email": "info@simplosite.ca",
+  "phoneDisplay": "À confirmer",
+  "region": "Québec",
+  "tagline": "Sites web simples, rapides et utiles pour entrepreneurs locaux au Québec.",
+  "primaryOffer": "Création de sites web clairs pour petites entreprises, travailleurs autonomes et services locaux.",
+  "ctaPrimary": "Planifier un appel",
+  "ctaSecondary": "Demander une estimation",
+  "services": [
+    "Site vitrine rapide et professionnel",
+    "Pages de service optimisées pour les recherches locales",
+    "Texte, structure et appels à l'action orientés conversion",
+    "Déploiement statique performant prêt pour Netlify"
+  ]
+}

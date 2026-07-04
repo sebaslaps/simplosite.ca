@@ -1,0 +1,113 @@
+---
+import site from '../data/site.json';
+const {
+  title = 'SimploSite | Sites web simples pour entrepreneurs locaux au Québec',
+  description = 'SimploSite crée des sites web simples, rapides et orientés conversion pour entrepreneurs locaux, petites entreprises et services professionnels au Québec.',
+  canonicalPath = '/',
+} = Astro.props;
+const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
+---
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CA" />
+    <meta property="og:site_name" content={site.companyName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: site.companyName,
+      url: site.canonicalUrl,
+      email: site.email,
+      identifier: `NEQ ${site.neq}`,
+      areaServed: 'Québec, Canada',
+      sameAs: []
+    })} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Accueil SimploSite">
+        <span class="brand-mark">S</span>
+        <span>{site.companyName}</span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="/#services">Services</a>
+        <a href="/#processus">Processus</a>
+        <a href="/#contact">Contact</a>
+        <a href="/politique-confidentialite/">Confidentialité</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p><strong>{site.companyName}</strong> · NEQ {site.neq} · {site.domain}</p>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href="/politique-confidentialite/">Politique de confidentialité</a></p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --ink: #102033;
+    --muted: #5d6b7c;
+    --line: #dfe7f0;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --brand: #155eef;
+    --brand-dark: #0f3fa8;
+    --accent: #19a974;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .site-header, .site-footer, .section, .hero { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+  .site-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 800; font-size: 1.1rem; }
+  .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--brand); color: white; }
+  nav { display: flex; flex-wrap: wrap; gap: 16px; font-size: .95rem; }
+  nav a { color: var(--ink); font-weight: 650; }
+  .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: center; padding: 64px 0 40px; }
+  .eyebrow { display: inline-flex; border: 1px solid #bdd0ff; background: #edf3ff; color: var(--brand-dark); border-radius: 999px; padding: 6px 12px; font-weight: 750; font-size: .88rem; }
+  h1 { font-size: clamp(2.5rem, 6vw, 5.4rem); line-height: .96; letter-spacing: -.06em; margin: 20px 0; }
+  h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.1; letter-spacing: -.035em; margin: 0 0 16px; }
+  h3 { margin: 0 0 8px; }
+  .lead { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--muted); max-width: 680px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 13px 18px; font-weight: 800; border: 1px solid var(--line); background: white; color: var(--ink); box-shadow: 0 8px 22px rgba(16,32,51,.08); }
+  .button.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .hero-card, .card, .contact-card { background: rgba(255,255,255,.82); border: 1px solid var(--line); border-radius: 28px; padding: 26px; box-shadow: 0 20px 80px rgba(16,32,51,.10); }
+  .hero-card ul, .check-list { padding: 0; list-style: none; margin: 18px 0 0; display: grid; gap: 12px; }
+  .hero-card li, .check-list li { position: relative; padding-left: 28px; }
+  .hero-card li::before, .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
+  .section { padding: 58px 0; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { box-shadow: none; }
+  .muted { color: var(--muted); }
+  .band { background: #102033; color: white; border-radius: 34px; padding: 34px; }
+  .band .muted { color: #c2cede; }
+  .contact-card { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .site-footer { padding: 28px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
+  @media (max-width: 820px) {
+    .site-header, .hero, .contact-card { display: block; }
+    nav { margin-top: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .hero { padding-top: 34px; }
+    .hero-card { margin-top: 26px; }
+  }
+</style>

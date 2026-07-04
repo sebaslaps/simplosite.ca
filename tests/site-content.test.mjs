@@ -60,6 +60,8 @@ describe('SimploSite simplified public website', () => {
 
     assert.doesNotMatch(home, /Parler de mon site/i);
     assert.doesNotMatch(home, /Appel découverte/i);
+    assert.doesNotMatch(home, /Téléphone/i);
+    assert.doesNotMatch(home, /À confirmer/i);
     assert.match(home, /contact-card centered/i);
     for (const forbidden of forbiddenPublicTerms) assert.doesNotMatch(home, forbidden);
     assert.doesNotMatch(home, /<form|data-netlify|<input|<textarea/i);
@@ -68,5 +70,6 @@ describe('SimploSite simplified public website', () => {
   it('layout has no privacy link, legal identifier, or technical marketing language', () => {
     const layout = read('src/layouts/BaseLayout.astro');
     for (const forbidden of forbiddenPublicTerms) assert.doesNotMatch(layout, forbidden);
+    assert.match(layout, /site-footer centered/i);
   });
 });

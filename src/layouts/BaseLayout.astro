@@ -49,7 +49,7 @@ const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
     <main>
       <slot />
     </main>
-    <footer class="site-footer">
+    <footer class="site-footer centered">
       <p><strong>{site.companyName}</strong> · {site.domain}</p>
       <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
     </footer>
@@ -102,6 +102,8 @@ const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
   .contact-card.centered { display: flex; flex-direction: column; text-align: center; align-items: center; }
   .contact-card.centered .muted { max-width: 680px; margin-inline: auto; }
   .site-footer { padding: 28px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
+  .site-footer.centered { text-align: center; }
+  .site-footer.centered p { margin: 6px 0; }
   @media (max-width: 820px) {
     .site-header, .hero, .contact-card { display: block; }
     nav { margin-top: 16px; }

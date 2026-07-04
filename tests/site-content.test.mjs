@@ -5,52 +5,66 @@ import { join } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
 const read = (path) => readFileSync(join(root, path), 'utf8');
+const exists = (path) => existsSync(join(root, path));
 
-function assertFile(path) {
-  assert.ok(existsSync(join(root, path)), `${path} should exist`);
-}
+const forbiddenPublicTerms = [
+  /NEQ/i,
+  /2282327651/i,
+  /politique-confidentialite/i,
+  /confidentialité/i,
+  /Netlify/i,
+  /statique/i,
+  /build/i,
+  /déploiement/i,
+  /SEO/i,
+  /technique/i,
+  /robots\.txt/i,
+  /sitemap/i
+];
 
-describe('SimploSite website source', () => {
-  it('has required Astro project files and pages', () => {
+describe('SimploSite simplified public website', () => {
+  it('has only the required simple Astro project files and homepage', () => {
     for (const path of [
       'astro.config.mjs',
       'netlify.toml',
       'src/data/site.json',
       'src/layouts/BaseLayout.astro',
       'src/pages/index.astro',
-      'src/pages/politique-confidentialite.astro',
       'public/robots.txt',
       'README.md'
-    ]) assertFile(path);
+    ]) assert.ok(exists(path), `${path} should exist`);
+
+    assert.equal(exists('src/pages/politique-confidentialite.astro'), false, 'privacy page should be removed');
   });
 
-  it('defines the SimploSite legal/company identity and canonical domain', () => {
+  it('defines the SimploSite brand and canonical domain without exposing NEQ', () => {
     const data = JSON.parse(read('src/data/site.json'));
     assert.equal(data.companyName, 'SimploSite');
-    assert.equal(data.neq, '2282327651');
     assert.equal(data.domain, 'simplosite.ca');
     assert.equal(data.canonicalUrl, 'https://simplosite.ca/');
     assert.equal(data.language, 'fr-CA');
+    assert.equal(Object.hasOwn(data, 'neq'), false);
   });
 
-  it('home page source contains core offer, trust details, and CTAs without forms', () => {
-    const html = read('src/pages/index.astro');
+  it('homepage speaks to non-technical service providers in plain language', () => {
+    const home = read('src/pages/index.astro');
     for (const expected of [
       'Sites web simples',
-      'entrepreneurs locaux',
-      'Québec',
-      'SimploSite',
-      '2282327651',
-      'Planifier un appel',
-      'Demander une estimation'
-    ]) assert.match(html, new RegExp(expected, 'i'));
-    assert.doesNotMatch(html, /<form|data-netlify|<input|<textarea/i);
+      'gens de métier',
+      'entreprises de services',
+      'clients vous trouvent',
+      'Appel découverte',
+      'Parler de mon site',
+      'clair',
+      'simple'
+    ]) assert.match(home, new RegExp(expected, 'i'));
+
+    for (const forbidden of forbiddenPublicTerms) assert.doesNotMatch(home, forbidden);
+    assert.doesNotMatch(home, /<form|data-netlify|<input|<textarea/i);
   });
 
-  it('privacy page source includes Quebec Law 25 compliant basics and contact email', () => {
-    const privacy = read('src/pages/politique-confidentialite.astro');
-    for (const expected of ['Loi 25', 'renseignements personnels', 'confidentialité', 'info@simplosite.ca', 'NEQ 2282327651']) {
-      assert.match(privacy, new RegExp(expected, 'i'));
-    }
+  it('layout has no privacy link, legal identifier, or technical marketing language', () => {
+    const layout = read('src/layouts/BaseLayout.astro');
+    for (const forbidden of forbiddenPublicTerms) assert.doesNotMatch(layout, forbidden);
   });
 });

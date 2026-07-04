@@ -1,38 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
-const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Demande d’estimation SimploSite')}`;
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Appel découverte SimploSite')}`;
 ---
 <BaseLayout>
   <section class="hero">
     <div>
-      <span class="eyebrow">SimploSite · Québec · NEQ 2282327651</span>
-      <h1>Sites web simples pour entrepreneurs locaux.</h1>
-      <p class="lead">{site.tagline} On construit une présence claire, rapide et crédible pour aider vos clients à comprendre ce que vous faites et à vous contacter sans friction.</p>
+      <span class="eyebrow">SimploSite · Sites web pour services locaux</span>
+      <h1>Sites web simples pour gens de métier et entreprises de services.</h1>
+      <p class="lead">{site.tagline} Vous faites du bon travail. Votre site devrait le dire clairement, sans jargon et sans détour.</p>
       <div class="actions">
-        <a class="button primary" href={mailto}>Planifier un appel</a>
-        <a class="button" href="#contact">Demander une estimation</a>
+        <a class="button primary" href={mailto}>Appel découverte</a>
+        <a class="button" href="#contact">Parler de mon site</a>
       </div>
     </div>
     <aside class="hero-card" aria-label="Promesse SimploSite">
-      <h2>Un site utile, pas compliqué.</h2>
-      <p class="muted">Une page solide pour présenter votre service, rassurer les visiteurs et préparer un déploiement propre sur Netlify pour simplosite.ca.</p>
+      <h2>Un site clair, simple et rassurant.</h2>
+      <p class="muted">Pour les clients qui veulent vite comprendre vos services, voir si vous pouvez les aider et savoir comment vous joindre.</p>
       <ul>
-        <li>Design professionnel et responsive</li>
-        <li>Texte orienté conversion et recherches locales</li>
-        <li>Structure technique rapide, statique et facile à maintenir</li>
+        <li>Votre offre expliquée en mots simples</li>
+        <li>Une présentation propre qui inspire confiance</li>
+        <li>Un chemin facile pour recevoir des demandes</li>
       </ul>
     </aside>
   </section>
 
   <section class="section" id="services">
-    <h2>Ce que SimploSite peut créer</h2>
-    <p class="lead">Des sites web simples, propres et bâtis autour de l’objectif d’affaires: expliquer l’offre, gagner la confiance et générer le prochain contact.</p>
+    <h2>Ce que SimploSite prépare pour vous</h2>
+    <p class="lead">Un site court et efficace pour montrer qui vous aidez, ce que vous faites et pourquoi un client devrait vous contacter.</p>
     <div class="grid">
       {site.services.map((service) => (
         <article class="card">
           <h3>{service}</h3>
-          <p class="muted">Une approche concrète pour petites entreprises, entrepreneurs locaux et services professionnels au Québec.</p>
+          <p class="muted">Pensé pour des entreprises de services qui veulent être prises au sérieux sans se compliquer la vie.</p>
         </article>
       ))}
     </div>
@@ -40,41 +40,41 @@ const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Demande d’e
 
   <section class="section" id="processus">
     <div class="band">
-      <h2>Processus simple en trois étapes</h2>
+      <h2>Comment ça marche</h2>
       <div class="grid">
         <article>
-          <h3>1. Clarifier</h3>
-          <p class="muted">On définit l’offre, la clientèle, les services importants et les actions que le visiteur doit prendre.</p>
+          <h3>1. On comprend votre service</h3>
+          <p class="muted">Vous expliquez ce que vous faites, votre secteur et le type de client que vous voulez rejoindre.</p>
         </article>
         <article>
-          <h3>2. Construire</h3>
-          <p class="muted">On assemble une page rapide avec message clair, sections essentielles, confidentialité de base et fondations SEO locales.</p>
+          <h3>2. On met vos idées en ordre</h3>
+          <p class="muted">On transforme vos services en message simple: quoi, pour qui, dans quelle région et comment vous contacter.</p>
         </article>
         <article>
-          <h3>3. Publier</h3>
-          <p class="muted">On valide le build localement avant tout déploiement Netlify, puis on connecte le domaine quand tout est prêt.</p>
+          <h3>3. Vous révisez avant publication</h3>
+          <p class="muted">Vous voyez la page, vous demandez les ajustements, puis on la publie seulement quand vous êtes à l’aise.</p>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Pourquoi une page simple fonctionne</h2>
+    <h2>Pour qui?</h2>
     <ul class="check-list">
-      <li>Elle répond vite aux questions: qui vous êtes, ce que vous faites, où vous servez et comment vous joindre.</li>
-      <li>Elle évite la lourdeur d’un gros site avant d’avoir validé le message et l’offre.</li>
-      <li>Elle donne une base technique propre pour ajouter des pages, du contenu local et des intégrations plus tard.</li>
+      <li>Entrepreneurs en rénovation, entretien, excavation, nettoyage, réparation ou services à domicile.</li>
+      <li>Travailleurs autonomes qui veulent une présence plus crédible qu’une simple page sociale.</li>
+      <li>Fournisseurs de services locaux qui veulent que les clients vous trouvent et passent à l’action.</li>
     </ul>
   </section>
 
   <section class="section" id="contact">
     <div class="contact-card">
       <div>
-        <span class="eyebrow">Prêt pour la prochaine étape?</span>
-        <h2>Demander une estimation SimploSite</h2>
-        <p class="muted">Écrivez à {site.email} avec votre type d’entreprise, votre région au Québec et l’objectif principal du site. Téléphone: {site.phoneDisplay}.</p>
+        <span class="eyebrow">Vous voulez un site plus clair?</span>
+        <h2>Parler de mon site</h2>
+        <p class="muted">Écrivez à {site.email} avec votre métier, votre région et ce que vous voulez que votre site accomplisse. Téléphone: {site.phoneDisplay}.</p>
       </div>
-      <a class="button primary" href={mailto}>Demander une estimation</a>
+      <a class="button primary" href={mailto}>Appel découverte</a>
     </div>
   </section>
 </BaseLayout>

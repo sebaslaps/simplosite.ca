@@ -1,19 +1,17 @@
 # SimploSite — simplosite.ca
 
-Static Astro website for **SimploSite** (NEQ `2282327651`) before Netlify deployment.
+Website for **SimploSite**.
 
 ## Local workflow
 
 ```bash
 npm install
-npm run local      # hot-reload development server
+npm run local
 npm test
 npm run build
-npm run preview    # serves the generated dist/ build, closest to Netlify output
+npm run preview
 ```
 
 The intended production domain is `https://simplosite.ca/`.
 
-## Deployment note
-
-Do not deploy to Netlify until the local build has been reviewed and approved.
+Do not deploy to Netlify until the local version has been reviewed and approved.

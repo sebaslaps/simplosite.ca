@@ -1,8 +1,8 @@
 ---
 import site from '../data/site.json';
 const {
-  title = 'SimploSite | Sites web simples pour entrepreneurs locaux au Québec',
-  description = 'SimploSite crée des sites web simples, rapides et orientés conversion pour entrepreneurs locaux, petites entreprises et services professionnels au Québec.',
+  title = 'SimploSite | Sites web simples pour entreprises de services',
+  description = 'SimploSite crée des sites web simples et clairs pour gens de métier, travailleurs autonomes et entreprises de services au Québec.',
   canonicalPath = '/',
 } = Astro.props;
 const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
@@ -31,9 +31,7 @@ const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
       name: site.companyName,
       url: site.canonicalUrl,
       email: site.email,
-      identifier: `NEQ ${site.neq}`,
-      areaServed: 'Québec, Canada',
-      sameAs: []
+      areaServed: 'Québec, Canada'
     })} />
   </head>
   <body>
@@ -44,17 +42,16 @@ const canonical = new URL(canonicalPath, site.canonicalUrl).toString();
       </a>
       <nav aria-label="Navigation principale">
         <a href="/#services">Services</a>
-        <a href="/#processus">Processus</a>
+        <a href="/#processus">Comment ça marche</a>
         <a href="/#contact">Contact</a>
-        <a href="/politique-confidentialite/">Confidentialité</a>
       </nav>
     </header>
     <main>
       <slot />
     </main>
     <footer class="site-footer">
-      <p><strong>{site.companyName}</strong> · NEQ {site.neq} · {site.domain}</p>
-      <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href="/politique-confidentialite/">Politique de confidentialité</a></p>
+      <p><strong>{site.companyName}</strong> · {site.domain}</p>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
     </footer>
   </body>
 </html>

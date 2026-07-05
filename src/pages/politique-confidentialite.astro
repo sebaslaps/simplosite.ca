@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+<BaseLayout
+  title="Politique de confidentialité | SimploSite"
+  description="Politique de confidentialité de SimploSite : renseignements recueillis, utilisation, communication et mesures de sécurité."
+  canonicalPath="/politique-confidentialite/"
+>
+  <section class="section legal-page">
+    <p class="eyebrow">SimploSite · Politique de confidentialité</p>
+    <h1>Politique de confidentialité</h1>
+    <p class="lead">Cette politique explique quels renseignements SimploSite peut recueillir, comment ils sont utilisés, à qui ils peuvent être communiqués et quelles mesures sont prises pour les protéger.</p>
+
+    <div class="card legal-card">
+      <p><strong>Dernière mise à jour :</strong> 5 juillet 2026</p>
+      <p><strong>Site web :</strong> {site.domain}</p>
+      <p><strong>Contact :</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    </div>
+
+    <div class="legal-copy">
+      <h2>Renseignements recueillis</h2>
+      <p>SimploSite peut recueillir les renseignements que vous choisissez de nous transmettre, par exemple votre nom, le nom de votre entreprise, votre adresse courriel, votre numéro de téléphone, les détails de votre projet, vos messages et tout autre renseignement inclus dans une demande ou une communication.</p>
+      <p>Nous pouvons aussi recevoir des renseignements de base liés à l’utilisation du site, comme les pages consultées, l’heure approximative de la visite, le type de navigateur, le type d’appareil, l’adresse IP et une localisation générale déduite de données techniques, lorsque ces renseignements sont fournis par les outils d’hébergement, de sécurité, d’analyse ou de communication utilisés.</p>
+
+      <h2>Utilisation des renseignements</h2>
+      <p>Les renseignements recueillis servent à répondre aux demandes, préparer des soumissions, fournir et améliorer nos services, exploiter et protéger le site web, communiquer avec les clients ou les prospects, tenir des dossiers d’affaires et respecter nos obligations légales ou administratives.</p>
+
+      <h2>Communication des renseignements</h2>
+      <p>Nous ne vendons pas les renseignements personnels. Des renseignements peuvent être communiqués seulement lorsque cela est raisonnablement nécessaire, notamment à des fournisseurs qui nous aident à exploiter le site, le courriel, l’hébergement, les paiements, la sécurité ou l’administration de l’entreprise; à un client ou à un fournisseur lorsque c’est nécessaire pour traiter une demande; ou lorsque la loi, un règlement, une ordonnance ou la protection de nos droits, de nos utilisateurs ou de notre entreprise l’exige.</p>
+
+      <h2>Méthode de communication</h2>
+      <p>Lorsque des renseignements sont communiqués à des fournisseurs ou à des outils d’affaires, ils peuvent être transmis par formulaire sécurisé, courriel, tableau de bord d’hébergement, plateforme de paiement, service infonuagique ou autre système numérique utilisé pour exploiter l’entreprise. Nous limitons la communication aux renseignements raisonnablement nécessaires à l’objectif visé.</p>
+
+      <h2>Paiements</h2>
+      <p>Les paiements, lorsqu’ils sont offerts, peuvent être traités par Stripe ou par un autre fournisseur de paiement. Les renseignements de paiement sont traités par le fournisseur de paiement selon ses propres politiques et pratiques de sécurité. SimploSite ne conserve pas volontairement les numéros complets de cartes de paiement sur ce site.</p>
+
+      <h2>Mesures de sécurité</h2>
+      <p>Nous appliquons des mesures administratives, techniques et organisationnelles raisonnables pour protéger les renseignements, notamment l’utilisation de fournisseurs d’hébergement et de paiement reconnus, un accès limité aux outils d’affaires, des pratiques de compte sécuritaires lorsque disponibles et la limitation des renseignements conservés à ce qui est utile pour les besoins d’affaires et les obligations légales.</p>
+      <p>Aucune méthode de transmission par Internet ou de stockage numérique n’est entièrement sécuritaire. Si vous croyez qu’un renseignement nous a été transmis par erreur ou si vous avez une question liée à la confidentialité, vous pouvez nous écrire à <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+
+      <h2>Conservation</h2>
+      <p>Nous conservons les renseignements aussi longtemps que raisonnablement nécessaire pour répondre aux demandes, fournir les services, maintenir nos dossiers, régler des différends, respecter nos obligations légales et exploiter l’entreprise.</p>
+
+      <h2>Vos choix</h2>
+      <p>Vous pouvez nous contacter pour demander l’accès, la correction ou la suppression de renseignements que nous détenons à votre sujet, sous réserve des exigences légales, contractuelles, de sécurité et de tenue de dossiers applicables.</p>
+
+      <h2>Modifications à cette politique</h2>
+      <p>Nous pouvons mettre cette politique à jour de temps à autre. La version mise à jour sera publiée sur cette page avec une nouvelle date de mise à jour.</p>
+    </div>
+  </section>
+</BaseLayout>

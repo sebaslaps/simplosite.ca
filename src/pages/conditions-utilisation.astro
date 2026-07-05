@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+<BaseLayout
+  title="Conditions d’utilisation | SimploSite"
+  description="Conditions d’utilisation de SimploSite pour le site simplosite.ca et les services offerts."
+  canonicalPath="/conditions-utilisation/"
+>
+  <section class="section legal-page">
+    <p class="eyebrow">SimploSite · Conditions d’utilisation</p>
+    <h1>Conditions d’utilisation</h1>
+    <p class="lead">Ces conditions décrivent les règles de base applicables à l’utilisation de ce site web et aux services offerts par SimploSite.</p>
+
+    <div class="card legal-card">
+      <p><strong>Dernière mise à jour :</strong> 5 juillet 2026</p>
+      <p><strong>Site web :</strong> {site.domain}</p>
+      <p><strong>Contact :</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    </div>
+
+    <div class="legal-copy">
+      <h2>Utilisation du site web</h2>
+      <p>Ce site web est fourni à titre d’information générale sur SimploSite et ses services. Vous acceptez de ne pas utiliser le site de manière abusive, de ne pas tenter d’y accéder sans autorisation, de ne pas nuire à son fonctionnement et de ne pas l’utiliser à des fins illégales.</p>
+
+      <h2>Demandes de service et soumissions</h2>
+      <p>L’envoi d’une demande ou d’une demande de soumission ne crée pas automatiquement une relation client. Le travail, les prix, les échéanciers, les livrables et les modalités de paiement doivent être confirmés séparément par écrit avant le début d’un projet ou d’un abonnement.</p>
+
+      <h2>Responsabilités du client</h2>
+      <p>Le client est responsable de fournir des renseignements exacts, des textes, des images, des approbations, des accès, des détails d’entreprise et tout matériel nécessaire à la réalisation du travail convenu. Le client est aussi responsable de s’assurer que ses renseignements d’entreprise, affirmations, licences, permis et obligations légales sont exacts et à jour.</p>
+
+      <h2>Paiements et abonnements</h2>
+      <p>Lorsqu’un paiement ou un abonnement est offert, le montant, l’intervalle de facturation, la période d’essai, les modalités de renouvellement et les conditions d’annulation sont présentés avant le paiement. Les paiements peuvent être traités par Stripe ou par un autre fournisseur de paiement. Le fournisseur de paiement peut appliquer ses propres conditions et politiques.</p>
+
+      <h2>Aucune garantie de résultats</h2>
+      <p>SimploSite travaille à fournir des sites web clairs et utiles, mais ne garantit pas un nombre précis de visites, d’appels, de demandes de soumission, de clients, de ventes, de revenus, de positionnement ou de résultats d’affaires.</p>
+
+      <h2>Services de tiers</h2>
+      <p>Certains services peuvent dépendre de fournisseurs tiers, par exemple pour l’hébergement, les domaines, le courriel, les paiements, les communications ou les outils d’affaires. SimploSite n’est pas responsable des interruptions, changements de politiques ou actions de fournisseurs tiers qui échappent à son contrôle raisonnable.</p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>Sauf entente écrite contraire, SimploSite conserve ses droits sur ses méthodes, modèles, processus, structures de code et éléments réutilisables. Les éléments fournis par le client demeurent sous la responsabilité du client, qui confirme avoir le droit d’utiliser tout matériel transmis.</p>
+
+      <h2>Limitation de responsabilité</h2>
+      <p>Dans la mesure permise par la loi, SimploSite n’est pas responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, y compris les pertes de profits, de revenus, d’occasions d’affaires, l’interruption des activités ou la perte de données découlant de l’utilisation de ce site web ou des services.</p>
+
+      <h2>Modifications aux conditions</h2>
+      <p>Nous pouvons mettre ces conditions à jour de temps à autre. La version mise à jour sera publiée sur cette page avec une nouvelle date de mise à jour.</p>
+
+      <h2>Contact</h2>
+      <p>Les questions au sujet de ces conditions peuvent être envoyées à <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
